@@ -1,26 +1,75 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.product-details,
+.cart-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.product-details__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 1.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.product-details__image {
+  position: relative;
+  min-height: 400px;
+  background: #f7f1e3;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.product-details__price {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.cart-items {
+  display: grid;
+  gap: 1rem;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #e4dccd;
+  border-radius: 10px;
+}
+
+.cart-item input {
+  display: block;
+  width: 90px;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+}
+
+.cart-summary {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #f7f1e3;
+  border-radius: 10px;
+}
+
+.cart-summary a,
+.product-details a {
+  color: #693001;
+}
+
+@media (max-width: 700px) {
+  .product-details__layout {
+    grid-template-columns: 1fr;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  .product-details__image {
+    min-height: 300px;
+  }
+
+  .cart-item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
